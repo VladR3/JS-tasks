@@ -37,3 +37,87 @@ function squareArray(arr) {
 
     return result;
 }
+
+// This
+
+class Hotel {
+
+    constructor(name) {
+        this.name = name;
+        this.rooms = [];
+        this.bookedRooms = [];
+    }
+
+    addRoom(number, type){
+        this.rooms.push({number, type, isBooked:false})
+    }
+
+    bookRoom(number, guestName){
+        let room = this.rooms.find(room => room.number === number);
+
+        if (!room){
+            console.log('Room not found');
+            return false;
+        }
+
+        if (room.isBooked){
+            console.log('This room is booked');
+            return false;
+        }
+
+        room.isBooked = true;
+        this.bookedRooms.push({
+            number,
+            type: room.type,
+            guestName
+        });
+    }
+
+    showBookedRooms() {
+        this.bookedRooms.forEach(room => {
+            console.log(
+                `Room ${room.number} (${room.type}) booked by ${room.guestName}`
+            );
+        });
+    }
+}
+
+const hotel = new Hotel('Hotel Ukraine');
+
+hotel.addRoom(101, 'Single');
+hotel.addRoom(102, 'Double');
+
+const booking = hotel.bookRoom.bind(hotel);
+
+booking(101, 'Vlad');
+booking(102, 'Alina');
+
+hotel.showBookedRooms();
+
+// Objects
+
+const book = {
+    title: 'My first book',
+    author: 'Vlad',
+    year: 2025
+};
+
+book.genre = 'biography';
+
+delete book.year;
+
+console.log(book);
+
+
+// Arrays
+
+let arr = ["Mike", "John", "Sara"];
+
+let index = arr.indexOf("John");
+console.log(`Index of el "John": ${index}`);
+
+arr.push("Vlad");
+console.log(arr[arr.length - 1]);
+
+let firstEl = arr.shift();
+console.log(firstEl);
