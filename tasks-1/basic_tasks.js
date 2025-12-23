@@ -121,8 +121,6 @@ console.log(arr[arr.length - 1]);
 
 let firstEl = arr.shift();
 console.log(firstEl);
-<<<<<<< Updated upstream
-=======
 
 // promises
 
@@ -151,6 +149,7 @@ promise
     });
 
 
+
 // Async Await
 
 const sayHello = async () => {
@@ -170,5 +169,3 @@ const sayHello = async () => {
         console.error("Помилка:", e.message);
     }
 })();
-
->>>>>>> Stashed changes
