@@ -121,3 +121,29 @@ console.log(arr[arr.length - 1]);
 
 let firstEl = arr.shift();
 console.log(firstEl);
+
+// promises
+
+function testPromise (){
+    return new Promise((resolve, reject) => {
+        let number = Math.floor(Math.random() * 10);
+
+        if (number % 2 === 0){
+            setTimeout(() => resolve("Promise resolved!"), 2000);
+        }
+        else {
+            setTimeout(() => reject("Promise rejected!"), 2000);
+        }
+
+    })
+}
+
+let promise = testPromise();
+
+promise
+    .then(value => {
+        console.log(value);
+    })
+    .catch(error => {
+        console.log(error);
+    });
