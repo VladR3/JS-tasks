@@ -147,3 +147,25 @@ promise
     .catch(error => {
         console.log(error);
     });
+
+
+
+// Async Await
+
+const sayHello = async () => {
+    try {
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        return "Hello, World!";
+    } catch {
+        throw new Error("Щось пішло не так");
+    }
+};
+
+(async () => {
+    try {
+        const result = await sayHello();
+        console.log(result);
+    } catch (e) {
+        console.error("Помилка:", e.message);
+    }
+})();
