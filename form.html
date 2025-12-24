@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="tasks-1/form.js" defer> </script>
+</head>
+<body>
+
+<article>
+    Завдання:
+    Створіть інтерактивну форму реєстрації користувача. Форма повинна включати поля для імені, електронної пошти, та
+    пароля.
+    Реалізуйте наступні функціональності:
+    Валідація полів форми при натисканні кнопки "Submit".
+    Відображення повідомлень про помилки під відповідними полями.
+    Динамічне відображення підказок при фокусуванні на поле вводу.
+    Відправка даних форми за допомогою події submit, якщо всі поля пройшли валідацію.
+
+    Вимоги:
+    Використовуйте події focus, blur, input та submit для управління взаємодією користувача.
+    Забезпечте динамічну валідацію даних в полях форми.
+    Відображайте та приховуйте повідомлення про помилки та підказки залежно від взаємодії користувача.
+</article>
+<form name="simple-form" method="post" id="simple-form">
+    <div class="form-group">
+        <label>Name</label>
+            <input type="text" name="name" data-val="true" data-required="Введіть ім'я" data-error-label="name-error-label">
+        <span class="error" id="name-error-label"></span>
+        <div class="message">Вам необхідно ввести своє ім'я</div>
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+            <input type="text" name="email" data-val="true" data-required="Введіть email" data-error-label="email-error-label">
+        <span class="error" id="email-error-label"></span>
+        <div class="message">Вам необхідно ввести адресу електронної пошти</div>
+    </div>
+    <div class="form-group">
+        <label>Пароль</label>
+        <input type="text" id="password" name="password" data-val="true" data-required="Введіть пароль" data-error-label="password-error-label">
+        <span class="error" id="password-error-label"></span>
+        <div class="message">Вам необхідно ввести пароль</div>
+    </div>
+    <div class="form-group">
+        <label>Повторіть пароль</label>
+        <input type="text" id="password2" name="password2" data-val="true" data-required="Введіть пароль" data-confirm="password" data-error-label="password2-error-label">
+        <span class="error" id="password2-error-label"></span>
+        <div class="message">Вам необхідно повторити раніше введений пароль</div>
+    </div>
+
+    <input type="submit" value="Надіслати">
+</form>
+</body>
+</html>
