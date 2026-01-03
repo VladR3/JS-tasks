@@ -169,3 +169,41 @@ const sayHello = async () => {
         console.error("Помилка:", e.message);
     }
 })();
+
+
+// Prototype
+
+function Book(title, author, year){
+    this.title = title;
+    this.author = author;
+    this.year = year;
+}
+
+Book.prototype.getInfo = function () {
+    console.log(`Title: ${this.title}, Author: ${this.author}`);
+};
+
+function EBook(title, author, year, fileSize) {
+    Book.call(this, title, author, year);
+    this.fileSize = fileSize;
+}
+
+EBook.prototype = Object.create(Book.prototype);
+EBook.prototype.constructor = EBook;
+
+EBook.prototype.download = function () {
+    return `Завантаження "${this.title}" ${this.fileSize} MB`;
+};
+
+const ebook = new EBook(
+    'New book',
+    'Vlad R',
+    2008,
+    5
+);
+
+ebook.getInfo();
+
+console.log(ebook.download());
+
+
